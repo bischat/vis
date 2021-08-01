@@ -24,7 +24,7 @@ async function init() {
   .attr("r", function(d) { return hs(d.height_no_shoes);})
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+100+")")
-  .call(d3.axisLeft(y).tickValues([3.2,3.4,3.6,3.8]).tickFormat((d, i) => [3.2,3.4,3.6,3.8][i]));
+  .call(d3.axisLeft(y).tickValues([150,200,250,300]).tickFormat((d, i) => [150,200,250,300][i]));
 }
 </script>
 </body>
