@@ -27,7 +27,7 @@ async function init() {
   .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+900+")")
-  .call(d3.axisBottom(x).tickValues([3.0,3.25,3.5,3.75]).tickFormat((d, i) => [3.0,3.25,3.5,3.75][i]));
+  .call(d3.axisBottom(x).tickValues([3.01,3.25,3.5,3.75]).tickFormat((d, i) => [3.01,3.25,3.5,3.75][i]));
 }
 </script>
 </body>
