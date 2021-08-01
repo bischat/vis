@@ -21,7 +21,7 @@ async function init() {
   .enter().append("circle")
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
-  .attr("r", function(d) { return hs(+d.height_no_shoes);})
+  .attr("r", function(d) { return hs(d.height_no_shoes);})
 }
 </script>
 </body>
