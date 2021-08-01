@@ -9,7 +9,7 @@ async function init() {
   var x = d3.scaleLog().domain([140,300]).range([0, 200]);
   var y = d3.scaleLog().domain([0,100000000]).range([200, 0]);
   
-  const data = await d3.csv('https://flunky.github.io/cars2017.csv');
+  const data = await d3.csv('https://www.kaggle.com/louise2001/us-cities?select=uscities.csv');
   console.log(data);
   d3.select("svg")
   .append("g")
