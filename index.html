@@ -9,7 +9,7 @@ async function init() {
   var x = d3.scaleLog().domain([0,50000]).range([0, 200]);
   var y = d3.scaleLog().domain([0,10000000]).range([200, 0]);
   
-  const data = await d3.csv('uscities.csv');
+  const data = await d3.csv('nba_draft_combine_all_years.csv');
   console.log(data);
   d3.select("svg")
   .append("g")
@@ -17,9 +17,6 @@ async function init() {
   .selectAll("circle")
   .data(data)
   .enter().append("circle")
-  .attr("cx", function(d) { return d.density; })
-  .attr("cy", function(d) { return d.population; })
-  .attr("r", function(d) { return 2; });
 }
 </script>
 </body>
