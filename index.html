@@ -6,7 +6,7 @@
 </svg>
 <script>
 async function init() {
-  var x = d3.scaleLog().domain([0,50000]).range([0, 200]);
+  var x = d3.scaleLog().domain([68,86]).range([0, 200]);
   var y = d3.scaleLog().domain([0,10000000]).range([200, 0]);
   
   const data = await d3.csv('nba_draft_combine_all_years.csv');
