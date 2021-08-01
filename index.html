@@ -17,8 +17,8 @@ async function init() {
   .selectAll("circle")
   .data(data)
   .enter().append("circle")
-  .attr("cx", function(d, i) { return i;})
-  .attr("cy", function(d, i) { return i;})
+  .attr("cx", function(d, i) { return x(d.sprint);})
+  .attr("cy", function(d, i) { return y(d.weight);})
   .attr("r", function(d) { return 2;})
 }
 </script>
