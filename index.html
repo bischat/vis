@@ -1,4 +1,5 @@
 <html>
+
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
@@ -19,7 +20,7 @@ async function init() {
   .enter().append("circle")
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
-  .attr("r", function(d) { return 10;})
+  .attr("r", function(d) { return d.height/10;})
 }
 </script>
 </body>
