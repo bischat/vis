@@ -9,6 +9,7 @@
 async function init() {
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
   var y = d3.scaleLog().domain([149,300]).range([800, 0]);
+  var hs = d3.scaleLog().domain([68, 86]).range([0,20]);
   
   const data = await d3.csv('nba-draft-combine-measurements-QueryResult.csv');
   console.log(data);
@@ -20,7 +21,7 @@ async function init() {
   .enter().append("circle")
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
-  .attr("r", function(d) { return (+d.height_no_shoes)-30;})
+  .attr("r", function(d) { return hs(+d.height_no_shoes);})
 }
 </script>
 </body>
