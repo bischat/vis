@@ -5,6 +5,7 @@
 <body onload='init()'>
 <svg width=1000 height=1000>
 </svg>
+<div name="tooltip opacity=0></div>
 <script>
 async function init() {
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
@@ -25,6 +26,9 @@ async function init() {
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+100+")")
   .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
+  d3.select("svg").append("g")
+  .attr("transform", "translate("+100+","+900+")")
+  .call(d3.axisBottom(x).tickValues([3.0,3.25,3.5,3.75]).tickFormat((d, i) => [3.0,3.25,3.5,3.75][i]));
 }
 </script>
 </body>
