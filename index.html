@@ -9,7 +9,7 @@ async function init() {
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 200]);
   var y = d3.scaleLog().domain([149,300]).range([200, 0]);
   
-  const data = await d3.csv('nba_draft_combine_all_years.csv');
+  const data = await d3.csv('nba-draft-combine-measurements-QueryResult.csv');
   console.log(data);
   d3.select("svg")
   .append("g")
