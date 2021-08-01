@@ -9,7 +9,7 @@ async function init() {
   var x = d3.scaleLog().domain([140,300]).range([0, 200]);
   var y = d3.scaleLog().domain([0,100000000]).range([200, 0]);
   
-  const data = await d3.csv('https://github.com/sivabalanb/Data-Analysis-with-Pandas-and-Python/blob/master/nba.csv');
+  const data = await d3.csv('https://data.world/achou/nba-draft-combine-measurements/workspace/file?filename=nba_draft_combine_all_years.csv');
   console.log(data);
   d3.select("svg")
   .append("g")
