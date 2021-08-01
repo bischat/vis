@@ -23,9 +23,6 @@ async function init() {
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
   .attr("r", function(d) { return hs(d.height_no_shoes);})
-  d3.select("svg").append("g")
-  .attr("transform", "translate("+100+","+100+")")
-  .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
 }
 </script>
 </body>
