@@ -1,11 +1,21 @@
 <html>
 
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<style> circle {fill: lightblue; stroke: black;} </style>
+<style> 
+  circle {fill: lightblue; stroke: black;}
+  #tooltip {
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    width: 60px; height: 40px;
+    background: white;
+    border: 0px;
+  }
+</style>
 <body onload='init()'>
 <svg width=1000 height=1000>
 </svg>
-<div name="tooltip" opacity=0></div>
+<div id="tooltip"></div>
 <script>
 async function init() {
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
@@ -23,6 +33,12 @@ async function init() {
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
   .attr("r", function(d) { return hs(d.height_no_shoes);})
+  .on("mouseover", function(d, i) {
+      tooltip.style("opacity", 1)
+             .style("left", (d3.event.pageX)+"px")
+             .style("top", (d3.event.pageY)+"px")
+             .html(d.player)
+  })
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+100+")")
   .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
