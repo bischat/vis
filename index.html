@@ -21,7 +21,7 @@
 <button onclick="bottomTen()">LOWEST DRAFT PICKS</button>
 </div>
 <body onload='init()'>
-<svg id="chart" width=800 height=800>
+<svg id="chart" width=1000 height=1000>
 </svg>
 <div id="tooltip"></div>
 
@@ -31,8 +31,8 @@ async function init() {
   var tooltip = d3.select("#tooltip");
   tooltip.style("opacity", 0);
   
-  var x = d3.scaleLog().domain([3.01,3.81]).range([0, 600]);
-  var y = d3.scaleLog().domain([25,44]).range([600, 0]);
+  var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
+  var y = d3.scaleLog().domain([25,44]).range([800, 0]);
   var hs = d3.scaleLog().domain([68, 86]).range([0,20]);
   var tooltip = d3.select("#tooltip");
   
@@ -57,7 +57,7 @@ async function init() {
   .attr("transform", "translate("+100+","+100+")")
   .call(d3.axisLeft(y).tickValues([25,31,37,43]).tickFormat((d, i) => [25,31,37,43][i]));
   d3.select("svg").append("g")
-  .attr("transform", "translate("+100+","+700+")")
+  .attr("transform", "translate("+100+","+900+")")
   .call(d3.axisBottom(x).tickValues([3.01,3.25,3.5,3.75]).tickFormat((d, i) => [3.01,3.25,3.5,3.75][i]));
 }
 </script>
