@@ -27,6 +27,9 @@
 <script>
 async function init() {
   document.getElementById("chart").innerHTML = "";
+  var tooltip = d3.select("#tooltip");
+  tooltip.style("opacity", 0);
+  
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
   var y = d3.scaleLog().domain([149,300]).range([800, 0]);
   var hs = d3.scaleLog().domain([68, 86]).range([0,20]);
@@ -49,9 +52,6 @@ async function init() {
              .style("top", (d3.event.pageY)+"px")
              .html(d.player + "\n" + "Height: " + d.height_no_shoes)
   })
-  .on("mouseleave", function(d, i) {
-      tooltip.style("opacity", 0)
-  })
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+100+")")
   .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
@@ -64,7 +64,9 @@ async function init() {
 <script>
 async function topTen() {
   document.getElementById("chart").innerHTML = "";
-  console.log("asdfasdf");
+  var tooltip = d3.select("#tooltip");
+  tooltip.style("opacity", 0);
+  
 }
 </script>
 
