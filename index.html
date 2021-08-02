@@ -1,6 +1,21 @@
 <html>
 
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<script>
+  function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 <style> 
   circle {fill: lightblue; stroke: black;}
   #tooltip {
@@ -11,10 +26,22 @@
     background: white;
     border: 0px;
   }
+  .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  }
 </style>
-<body onload='init()'>
+<body>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'All')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<div id="All" class="tabcontent" onload='init()'>
 <svg width=1000 height=1000>
-  <title>Sprint(x) vs. Weight(y) in the Nba Draft Combine</title>
 </svg>
 <div id="tooltip"></div>
 <script>
@@ -49,5 +76,7 @@ async function init() {
   .call(d3.axisBottom(x).tickValues([3.01,3.25,3.5,3.75]).tickFormat((d, i) => [3.01,3.25,3.5,3.75][i]));
 }
 </script>
+</div>
+
 </body>
 </html>
