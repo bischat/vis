@@ -19,6 +19,9 @@
   .sprint {
     position:relative; bottom:110; left:500;
   }
+  .annot {
+    position:relative; top:200; left:900;
+  }
 </style>
 <div>
 <h1>Sprint(x) vs Vertical(y) in the NBA Draft Combine</h1>
@@ -31,11 +34,13 @@
 </svg>
 <p class="vertical">Vertical</p>
 <p class="sprint">Sprint</p>
+<p class="annot" id="annot"></p>
 <div id="tooltip"></div>
 
 <script>
 async function init() {
   document.getElementById("chart").innerHTML = "";
+  document.getElementById("annot").innerHTML = "*Draft combine participants with low sprint times tend to have higher vertical";
   var tooltip = d3.select("#tooltip");
   tooltip.style("opacity", 0);
   
@@ -73,6 +78,7 @@ async function init() {
 <script>
 async function topTen() {
   document.getElementById("chart").innerHTML = "";
+  document.getElementById("annot").innerHTML = "*Top Draft Picks often have slow sprint speed and low vertical but are tall." + "\n" + "Inverse correlation is still present";
   var tooltip = d3.select("#tooltip");
   tooltip.style("opacity", 0);
   
@@ -111,6 +117,7 @@ async function topTen() {
 <script>
 async function bottomTen() {
   document.getElementById("chart").innerHTML = "";
+  document.getElementById("annot").innerHTML = "*Lower Draft Picks tend to be shorter regardless of sprint or vertical" + "\n" + "Inverse correlation is still present";
   var tooltip = d3.select("#tooltip");
   tooltip.style("opacity", 0);
   
