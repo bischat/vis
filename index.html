@@ -13,6 +13,12 @@
   .buttons {
     position:relative; left:150; top:5;
   }
+  .vertical {
+    position:relative; bottom:600; left:20;
+  }
+  .sprint {
+    position:relative; bottom:100; left:600;
+  }
 </style>
 <div>
 <h1>Sprint(x) vs Vertical(y) in the NBA Draft Combine</h1>
@@ -23,8 +29,8 @@
 <body onload='init()'>
 <svg id="chart" width=1000 height=1000>
 </svg>
-<p>Vertical</p>
-<p>Sprint</p>
+<p class="vertical">Vertical</p>
+<p class="sprint">Sprint</p>
 <div id="tooltip"></div>
 
 <script>
