@@ -6,7 +6,7 @@
     opacity: 0;
     position: absolute;
     text-align: center;
-    width: 60px; height: 40px;
+    width: 100px; height: 100px;
     background: white;
     border: 0px;
   }
@@ -72,7 +72,7 @@ async function topTen() {
   .selectAll("circle")
   .data(data)
   .enter().append("circle")
-  .filter(function(d) { return d.draft_pick < 10 })
+  .filter(function(d) { return d.draft_pick < 3 })
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.weight);})
   .attr("r", function(d) { return hs(d.height_no_shoes);})
