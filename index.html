@@ -15,8 +15,8 @@
   }
 </style>
 <div class="buttons">
-<button onclick="myFunction()">ALL</button>
-<button onclick="myFunction()">TOP DRAFT PICKS</button>
+<button onclick="init()">ALL</button>
+<button onclick="">TOP DRAFT PICKS</button>
 <button onclick="myFunction()">LOWEST DRAFT PICKS</button>
 </div>
 <body onload='init()'>
@@ -45,7 +45,7 @@ async function init() {
       tooltip.style("opacity", 1)
              .style("left", (d3.event.pageX)+"px")
              .style("top", (d3.event.pageY)+"px")
-             .html(d.player)
+             .html(d.player + "\n" + "Height: " + "d.height_no_shoes")
   })
   d3.select("svg").append("g")
   .attr("transform", "translate("+100+","+100+")")
