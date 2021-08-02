@@ -67,6 +67,35 @@ async function topTen() {
   var tooltip = d3.select("#tooltip");
   tooltip.style("opacity", 0);
   
+  var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
+  var y = d3.scaleLog().domain([149,300]).range([800, 0]);
+  var hs = d3.scaleLog().domain([68, 86]).range([0,20]);
+  var tooltip = d3.select("#tooltip");
+  
+  const data = await d3.csv('nba-draft-combine-measurements-QueryResult.csv');
+  console.log(data);
+  d3.select("svg")
+  .append("g")
+  .attr("transform", "translate("+100+","+100+")")
+  .selectAll("circle")
+  .data(data)
+  .enter().append("circle")
+  .filter(function(d) { return d.draft_pick < 3 })
+  .attr("cx", function(d, i) { return x(d.sprint);})
+  .attr("cy", function(d, i) { return y(d.weight);})
+  .attr("r", function(d) { return hs(d.height_no_shoes);})
+  .on("mouseover", function(d, i) {
+      tooltip.style("opacity", 1)
+             .style("left", (d3.event.pageX)+"px")
+             .style("top", (d3.event.pageY)+"px")
+             .html(d.player + "\n" + "Height: " + d.height_no_shoes)
+  })
+  d3.select("svg").append("g")
+  .attr("transform", "translate("+100+","+100+")")
+  .call(d3.axisLeft(y).tickValues([149,200,250,300]).tickFormat((d, i) => [149,200,250,300][i]));
+  d3.select("svg").append("g")
+  .attr("transform", "translate("+100+","+900+")")
+  .call(d3.axisBottom(x).tickValues([3.01,3.25,3.5,3.75]).tickFormat((d, i) => [3.01,3.25,3.5,3.75][i]));
 }
 </script>
 
