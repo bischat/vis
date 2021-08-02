@@ -11,7 +11,11 @@
     border: 0px;
   }
   .buttons {
-    position:absolute; left:5; top:5;
+    position:relative; left:5; top:5;
+  }
+  .content {
+    max-width: 500px;
+    margin: auto;
   }
 </style>
 <div class="buttons">
@@ -19,7 +23,7 @@
 <button onclick="topTen()">TOP DRAFT PICKS</button>
 <button onclick="myFunction()">LOWEST DRAFT PICKS</button>
 </div>
-<body onload='init()'>
+<body class="content" onload='init()'>
 <svg id="chart" width=800 height=800>
 </svg>
 <div id="tooltip"></div>
