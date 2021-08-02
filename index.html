@@ -119,7 +119,7 @@ async function bottomTen() {
   .selectAll("circle")
   .data(data)
   .enter().append("circle")
-  .filter(function(d) { return d.draft_pick > 55 })
+  .filter(function(d) { return d.draft_pick > 50 })
   .attr("cx", function(d, i) { return x(d.sprint);})
   .attr("cy", function(d, i) { return y(d.vertical_max);})
   .attr("r", function(d) { return hs(d.height_no_shoes);})
