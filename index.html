@@ -20,7 +20,7 @@
     position:relative; bottom:110; left:500;
   }
   .annot {
-    position:relative; top:200; left:900;
+    position:relative; bottom:900; left:900;
   }
 </style>
 <div>
@@ -28,13 +28,13 @@
 <button class="buttons" onclick="init()">ALL</button>
 <button class="buttons" onclick="topTen()">TOP DRAFT PICKS</button>
 <button class="buttons" onclick="bottomTen()">LOWEST DRAFT PICKS</button>
-<p class="annot" id="annot"></p>
 </div>
 <body onload='init()'>
 <svg id="chart" width=1000 height=1000>
 </svg>
 <p class="vertical">Vertical</p>
 <p class="sprint">Sprint</p>
+<p class="annot" id="annot"></p>
 <div id="tooltip"></div>
 
 <script>
