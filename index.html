@@ -16,7 +16,7 @@
 </style>
 <div class="buttons">
 <button onclick="init()">ALL</button>
-<button onclick="">top()</button>
+<button onclick="topTen()">TOP DRAFT PICKS</button>
 <button onclick="myFunction()">LOWEST DRAFT PICKS</button>
 </div>
 <body onload='init()'>
@@ -58,7 +58,7 @@ async function init() {
 </script>
 
 <script>
-async function top() {
+async function topTen() {
   var x = d3.scaleLog().domain([3.01,3.81]).range([0, 800]);
   var y = d3.scaleLog().domain([149,300]).range([800, 0]);
   var hs = d3.scaleLog().domain([68, 86]).range([0,20]);
